@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
     private File mCaptureImagePath;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int REQUEST_LOCATION_CODE = 99;
+    private long backPressTime;
+    Toast backToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,6 +118,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        if (backPressTime + 2000 > System.currentTimeMillis()) {
+            backToast.cancel();
+            moveTaskToBack(true);
+            super.onBackPressed();
+        } else {
+            backToast = Toast.makeText(this, "Press back again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backPressTime = System.currentTimeMillis();
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_LOCATION_CODE:
@@ -131,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     public boolean checkLocationPermission() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA)
@@ -143,7 +159,9 @@ public class MainActivity extends AppCompatActivity {
                         new String[]{Manifest.permission.CAMERA},
                         REQUEST_LOCATION_CODE);
             } else {
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_LOCATION_CODE);
+                ActivityCompat.requestPermissions(this,
+                        new String[]{Manifest.permission.CAMERA},
+                        REQUEST_LOCATION_CODE);
             }
             return false;
         } else {

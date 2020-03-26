@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onStart() {
         super.onStart();
         if (AuthHelper.isLogin(LoginActivity.this)) {
-            startActivity(new Intent(LoginActivity.this, ShowData.class));
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
         }
 //        FirebaseUser mUser = mAuth.getCurrentUser();
 //        if (mUser != null) {
