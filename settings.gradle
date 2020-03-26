@@ -1,0 +1,2 @@
+rootProject.name='JH Memory'
+include ':app'

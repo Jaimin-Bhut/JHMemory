@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "162889166055",
+    "firebase_url": "https://jh-memory.firebaseio.com",
+    "project_id": "jh-memory",
+    "storage_bucket": "jh-memory.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162889166055:android:742a3d48d4589a4ede8642",
+        "android_client_info": {
+          "package_name": "com.jb.dev.jhmemory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162889166055-aslq72passfdi2sa5fpcr9fcp8p4ej96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-r5mL5ile7AhQr3CKDo8V1zJjAAuc7-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162889166055-aslq72passfdi2sa5fpcr9fcp8p4ej96.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
