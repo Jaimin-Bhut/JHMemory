@@ -14,15 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.PhoneVerificationActivity"/>
-        <activity android:name=".activities.PhoneNumberActivity" />
-        <activity android:name=".activities.LoginActivity">
+        <activity android:name=".googleDrive.GridListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.PhoneVerificationActivity" />
+        <activity android:name=".activities.PhoneNumberActivity" />
+        <activity android:name=".activities.LoginActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -33,6 +35,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_path" />
         </provider>
+
         <activity
             android:name=".activities.MainActivity"
             android:label="Main Activity" />

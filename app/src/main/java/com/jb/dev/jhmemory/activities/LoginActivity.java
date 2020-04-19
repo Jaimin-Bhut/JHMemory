@@ -222,10 +222,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             FirebaseDatabase.getInstance().getReference("User_data")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(userRegister).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @RequiresApi(api = Build.VERSION_CODES.N)
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        startActivity(new Intent(LoginActivity.this, ShowData.class));
+                                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                                        AuthHelper.isSetLogin(LoginActivity.this,true);
                                     } else {
                                         Log.e("ERROR:", task.getException().getMessage());
                                     }
