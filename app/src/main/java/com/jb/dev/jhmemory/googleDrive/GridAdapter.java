@@ -1,6 +1,8 @@
 package com.jb.dev.jhmemory.googleDrive;
 
 import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +11,19 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.jb.dev.jhmemory.R;
+
+import java.util.List;
 
 public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder> {
 
     private Context context;
+    private List<Uri> list;
 
-    int[] imgList = {R.drawable.image_1, R.drawable.image_2,
-            R.drawable.ran_ki_vav,R.drawable.image_3, R.drawable.image_4,
-            R.drawable.image_5,R.drawable.rann_of_kutch, R.drawable.image_6, R.drawable.image_7, R.drawable.image_8,
-            R.drawable.image_9,
-            R.drawable.pavagadh,R.drawable.image_10};
-
-    public GridAdapter(Context context) {
+    GridAdapter(Context context, List<Uri> list) {
         this.context = context;
+        this.list = list;
     }
 
     @NonNull
@@ -35,13 +36,14 @@ public class GridAdapter extends RecyclerView.Adapter<GridAdapter.GridViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull GridAdapter.GridViewHolder holder, int position) {
-        holder.imageView.setImageResource(imgList[position]);
-
+        Uri imageListModel = list.get(position);
+        Log.e("Uri>>>", imageListModel + "");
+        Glide.with(context).load(list.get(position)).into(holder.imageView);
     }
 
     @Override
     public int getItemCount() {
-        return imgList.length;
+        return list.size();
     }
 
     public class GridViewHolder extends RecyclerView.ViewHolder {
