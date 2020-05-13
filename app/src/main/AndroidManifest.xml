@@ -14,13 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.AuthUiActivity">
+        <activity android:name=".youtube.YouTubeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activities.AuthUiActivity"/>
         <activity android:name=".Main2Activity" />
         <activity
             android:name=".firestore.GridListActivity"
@@ -28,6 +29,7 @@
         <activity android:name=".activities.PhoneVerificationActivity" />
         <activity android:name=".activities.PhoneNumberActivity" />
         <activity android:name=".activities.LoginActivity" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.jb.dev.jhmemory"

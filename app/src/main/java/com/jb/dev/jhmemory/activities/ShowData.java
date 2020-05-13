@@ -1,6 +1,5 @@
 package com.jb.dev.jhmemory.activities;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,8 +14,6 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.jb.dev.jhmemory.R;
 import com.jb.dev.jhmemory.helper.AuthHelper;
@@ -63,13 +60,6 @@ public class ShowData extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_notif) {
             FirebaseAuth.getInstance().signOut();
-            mGoogleSignInClient.signOut()
-                    .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            startActivity(new Intent(ShowData.this, LoginActivity.class));
-                        }
-                    });
             AuthHelper.isClear(ShowData.this);
             return true;
         } else {
