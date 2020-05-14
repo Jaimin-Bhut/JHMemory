@@ -25,9 +25,10 @@ public class YouTubeActivity extends YouTubeBaseActivity {
         onInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo("https://www.youtube.com/watch?v=E66CtIAPIME");
+                youTubePlayer.loadVideo("LLqdUZ17PVM");
                 youTubePlayer.play();
             }
+
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
 
@@ -36,7 +37,7 @@ public class YouTubeActivity extends YouTubeBaseActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                view.initialize(PlayerConfig.API_KEY, onInitializedListener);
+                view.initialize(PlayerConfig.getApiKey(), onInitializedListener);
 
             }
         });
